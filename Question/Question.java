@@ -1,64 +1,64 @@
 /**
-   A question with a text and an answer.
-*/
+A question with a text and an answer.
+ */
 public class Question
 {
-   private String text;
-   private String answer;
+    private String text;
+    private String answer;
 
-   /**
-      Constructs a question with empty question and answer.
-   */
-   public Question() 
-   {
-      this.text = "";
-      this.answer = "";
-   }
-   
-   /**
-      Constructs a question with the specified question.
-      
-      @param question the text of this question
-   */
-   public Question( String question ) 
-   {
-      this.text = question;
-      this.answer = "";
-   }
+    /**
+    Constructs a question with empty question and answer.
+     */
+    public Question() 
+    {
+        this.text = "";
+        this.answer = "";
+    }
 
-   /**
-      Sets the question text.
-      @param questionText the text of this question
-   */
-   public void setText(String questionText)   
-   {
-      this.text = questionText;
-   }
+    /**
+    Constructs a question with the specified question.
 
-   /**
-      Sets the answer for this question.
-      @param correctResponse the answer
-   */
-   public void setAnswer(String correctResponse)
-   {
-      this.answer = correctResponse;
-   }
+    @param question the text of this question
+     */
+    public Question( String question ) 
+    {
+        this.setAnswer("");
+        this.setText(question);
+    }
 
-   /**
-      Checks a given response for correctness.
-      @param response the response to check
-      @return true if the response was correct, false otherwise
-   */
-   public boolean checkAnswer(String response)
-   {
-      return response.equals(this.answer);
-   }
+    /**
+    Sets the question text.
+    @param questionText the text of this question
+     */
+    public void setText(String questionText)   
+    {
+        this.text = questionText;
+    }
 
-   /**
-      Displays this question.
-   */
-   public String toString()
-   {
-      return this.text;
-   }
+    /**
+    Sets the answer for this question.
+    @param correctResponse the answer
+     */
+    public void setAnswer(String correctResponse)
+    {
+        this.answer = correctResponse;
+    }
+
+    /**
+    Checks a given response for correctness.
+    @param response the response to check
+    @return true if the response was correct, false otherwise
+     */
+    public boolean checkAnswer(String response)
+    {
+        return response.equals(this.answer);
+    }
+
+    /**
+    Displays this question.
+     */
+    public String toString()
+    {
+        return this.text;
+    }
 }
