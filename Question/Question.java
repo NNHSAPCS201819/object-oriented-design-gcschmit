@@ -11,8 +11,6 @@ public class Question
      */
     public Question() 
     {
-        this.text = "";
-        this.answer = "";
     }
 
     /**
@@ -22,7 +20,6 @@ public class Question
      */
     public Question( String question ) 
     {
-        this.setAnswer("");
         this.setText(question);
     }
 
