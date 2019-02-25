@@ -37,7 +37,7 @@ public class ButtonViewer
         this.frame = new JFrame();
         this.panel = new JPanel();
 
-        this.label = new JLabel("0 clicks");
+        this.label = new JLabel("A: 0; B: 0");
         this.panel.add(this.label);
 
         this.buttonA = new JButton("A");
@@ -49,7 +49,14 @@ public class ButtonViewer
         this.frame.add(this.panel);
 
         // 2. create listener object
-        ClickListener listener = new ClickListener();
+        ActionListener listener = new ActionListener()
+            {
+                public void actionPerformed(ActionEvent event)
+                {
+                    label.setText("Button " + event.getActionCommand() + 
+                            " was clicked");
+                }
+            };
 
         // 3. register listener object with component that generates events
         this.buttonA.addActionListener(listener);
@@ -78,7 +85,7 @@ public class ButtonViewer
                 clickCountB++;
             }
             
-            label.setText("A: " + clickCountA + "\nB: " + clickCountB);
+            label.setText("A: " + clickCountA + "; B: " + clickCountB);
         }
     }
 }
