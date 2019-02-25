@@ -19,24 +19,30 @@ public class ButtonViewer
     private JFrame frame;
     private JPanel panel;
     private JLabel label;
-    private JButton button;
+    private JButton buttonA;
+    private JButton buttonB;
 
-    private int clickCount;
+    private int clickCountA;
+    private int clickCountB;
 
     public ButtonViewer()
     {
-        this.clickCount = 0;
+        this.clickCountA = 0;
+        this.clickCountB = 0;
 
         // 1. define and setup the UI components
         this.frame = new JFrame();
         this.panel = new JPanel();
 
-        this.label = new JLabel("the button was clicked " + this.clickCount +
-            " times");
+        this.label = new JLabel("button A: " + this.clickCountA +
+            "\nbutton B: " + this.clickCountB);
         this.panel.add(this.label);
 
-        this.button = new JButton("click me");
-        this.panel.add(this.button);
+        this.buttonA = new JButton("A");
+        this.panel.add(this.buttonA);
+        
+        this.buttonB = new JButton("B");
+        this.panel.add(this.buttonB);
 
         this.frame.add(this.panel);
 
@@ -44,7 +50,8 @@ public class ButtonViewer
         ClickListener listener = new ClickListener();
 
         // 3. register listener object with component that generates events
-        this.button.addActionListener(listener);
+        this.buttonA.addActionListener(listener);
+        this.buttonB.addActionListener(listener);
 
         // configure the frame and show it
         this.frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
@@ -61,8 +68,17 @@ public class ButtonViewer
     {
         public void actionPerformed(ActionEvent event)
         {
-            clickCount++;
-            label.setText("the button was clicked " + clickCount + " times");
+            if(event.getSource() == buttonA)
+            {
+                clickCountA++;
+            }
+            else if(event.getSource() == buttonB)
+            {
+                clickCountB++;
+            }
+            
+            label.setText("button A: " + clickCountA +
+                    "\nbutton B: " + clickCountB);
         }
     }
 }
