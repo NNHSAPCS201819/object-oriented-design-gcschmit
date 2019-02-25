@@ -49,7 +49,14 @@ public class ButtonViewer
         this.frame.add(this.panel);
 
         // 2. create listener object
-        ClickListener listener = new ClickListener();
+        ActionListener listener = new ActionListener()
+            {
+                public void actionPerformed(ActionEvent event)
+                {
+                    label.setText("button " + event.getActionCommand() +
+                            " was clicked");
+                }
+            };
 
         // 3. register listener object with component that generates events
         this.buttonA.addActionListener(listener);
